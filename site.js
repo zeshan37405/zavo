@@ -1,6 +1,22 @@
 const SHEET_ID = "1UykHn4JGBxrrVW61cClI0yGqm5MaRKdBl0e-SA1boKE";
 const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=0`;
 
+const FALLBACK_PRODUCTS = [
+  {
+    id: "1",
+    title: "16-Color LED Sunset Projection Lamp with Remote Control",
+    description: "Create a warm, colorful atmosphere in bedrooms, living rooms, parties, photography setups, and gaming spaces with this USB-powered 16-color LED sunset projection lamp.",
+    image: "https://zeshan37405.github.io/smart-gadget-site/images/sunset-projection-lamp.svg",
+    link: "https://s.click.aliexpress.com/e/_c3yYJHFD",
+    category: "Home & Living",
+    keywords: "sunset lamp LED projection light RGB night light bedroom decor room aesthetic ambient lighting USB lamp remote control lamp",
+    alt: "16-color LED sunset projection lamp with remote control creating warm orange ambient light in a room",
+    publish: "Yes",
+    price: "Check latest price",
+    dealEnd: ""
+  }
+];
+
 const grid = document.getElementById("productsGrid");
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
@@ -23,20 +39,20 @@ function parseCSV(text) {
   let cell = "";
   let quoted = false;
 
-  for (let i = 0; i < text.length; i += 1) {
-    const char = text[i];
-    const next = text[i + 1];
+  for (let index = 0; index < text.length; index += 1) {
+    const char = text[index];
+    const next = text[index + 1];
 
     if (char === '"' && quoted && next === '"') {
       cell += '"';
-      i += 1;
+      index += 1;
     } else if (char === '"') {
       quoted = !quoted;
     } else if (char === "," && !quoted) {
       row.push(cell.trim());
       cell = "";
     } else if ((char === "\n" || char === "\r") && !quoted) {
-      if (char === "\r" && next === "\n") i += 1;
+      if (char === "\r" && next === "\n") index += 1;
       row.push(cell.trim());
       if (row.some((value) => value !== "")) rows.push(row);
       row = [];
@@ -48,7 +64,7 @@ function parseCSV(text) {
 
   if (cell.length || row.length) {
     row.push(cell.trim());
-    rows.push(row);
+    if (row.some((value) => value !== "")) rows.push(row);
   }
 
   return rows;
@@ -69,7 +85,7 @@ function normalize(value = "") {
 }
 
 function isPublished(value) {
-  const status = String(value || "").trim().toLowerCase();
+  const status = normalize(value);
   return !status || ["yes", "true", "1", "publish", "published", "live"].includes(status);
 }
 
@@ -84,10 +100,13 @@ function buildProducts(rows) {
   if (rows.length < 2) return [];
 
   const headers = rows[0].map(normalize);
-  const findIndex = (...names) => names
-    .map(normalize)
-    .map((name) => headers.indexOf(name))
-    .find((index) => index >= 0) ?? -1;
+  const findIndex = (...names) => {
+    for (const name of names.map(normalize)) {
+      const index = headers.indexOf(name);
+      if (index >= 0) return index;
+    }
+    return -1;
+  };
 
   const indexes = {
     id: findIndex("id"),
@@ -104,7 +123,7 @@ function buildProducts(rows) {
   };
 
   return rows.slice(1).map((row, index) => ({
-    id: indexes.id >= 0 ? row[indexes.id] : index + 1,
+    id: indexes.id >= 0 ? row[indexes.id] : String(index + 1),
     title: indexes.title >= 0 ? row[indexes.title] : "",
     description: indexes.description >= 0 ? row[indexes.description] : "",
     image: indexes.image >= 0 ? row[indexes.image] : "",
@@ -144,7 +163,7 @@ function saveSavedProducts(saved) {
   try {
     localStorage.setItem("zavoSavedProducts", JSON.stringify([...saved]));
   } catch {
-    // Browsing remains fully functional when storage is unavailable.
+    // The website remains usable when browser storage is unavailable.
   }
 }
 
@@ -154,18 +173,16 @@ function renderProducts() {
   const query = (searchInput?.value || "").trim().toLowerCase();
   const category = categoryFilter?.value || "all";
   const order = sortFilter?.value || "featured";
-  const filtered = products.filter((product) => productMatches(product, query, category));
-  const visible = sortProducts(filtered, order);
+  const visible = sortProducts(products.filter((product) => productMatches(product, query, category)), order);
   const saved = getSavedProducts();
 
   if (productCount) productCount.textContent = String(visible.length);
 
   if (!visible.length) {
-    const hasProducts = products.length > 0;
     grid.innerHTML = `
       <div class="empty-state">
-        <strong>${hasProducts ? "No products match your search." : "New products are being added."}</strong>
-        ${hasProducts ? "Try a different keyword or category." : "Please check back soon for the latest curated products."}
+        <strong>${products.length ? "No products match your search." : "New products are being added."}</strong>
+        ${products.length ? "Try a different keyword or category." : "Please check back soon."}
       </div>`;
     return;
   }
@@ -173,7 +190,7 @@ function renderProducts() {
   grid.innerHTML = visible.map((product) => {
     const productId = String(product.id || product.title);
     const safeLink = /^https?:\/\//i.test(product.link) ? product.link : "#";
-    const image = product.image || "https://placehold.co/900x900/fff1e9/e64a12?text=Zavo";
+    const image = /^https?:\/\//i.test(product.image) ? product.image : FALLBACK_PRODUCTS[0].image;
     const price = product.price || "Check latest price";
     const savedClass = saved.has(productId) ? " is-saved" : "";
     const savedLabel = saved.has(productId) ? "Remove from saved products" : "Save product";
@@ -181,7 +198,7 @@ function renderProducts() {
     return `
       <article class="product-card">
         <div class="product-media">
-          <img src="${escapeHTML(image)}" alt="${escapeHTML(product.alt || product.title)}" loading="lazy">
+          <img src="${escapeHTML(image)}" alt="${escapeHTML(product.alt || product.title)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_PRODUCTS[0].image}'">
           <span class="product-badge">Zavo Pick</span>
           <button class="product-save${savedClass}" type="button" data-save-id="${escapeHTML(productId)}" aria-label="${savedLabel}" title="${savedLabel}">♡</button>
         </div>
@@ -201,7 +218,6 @@ function renderProducts() {
 
 function populateCategories() {
   if (!categoryFilter) return;
-
   const categories = [...new Set(products.map((product) => product.category).filter(Boolean))].sort();
   categoryFilter.innerHTML = '<option value="all">All Categories</option>' + categories
     .map((category) => `<option value="${escapeHTML(category)}">${escapeHTML(category)}</option>`)
@@ -213,12 +229,10 @@ function populateCategories() {
 
 function selectCategory(category) {
   pendingCategory = category || "all";
-
   if (categoryFilter) {
-    const matchingOption = [...categoryFilter.options].find((option) => normalize(option.value) === normalize(pendingCategory));
-    categoryFilter.value = matchingOption ? matchingOption.value : "all";
+    const option = [...categoryFilter.options].find((item) => normalize(item.value) === normalize(pendingCategory));
+    categoryFilter.value = option ? option.value : "all";
   }
-
   document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" });
   renderProducts();
 }
@@ -233,7 +247,7 @@ function formatRemaining(milliseconds) {
   return days > 0 ? `${days}d ${clock}` : clock;
 }
 
-function getActiveDeals() {
+function activeDeals() {
   const now = Date.now();
   return products
     .map((product) => ({ ...product, dealTimestamp: parseDealEnd(product.dealEnd) }))
@@ -242,7 +256,7 @@ function getActiveDeals() {
     .slice(0, 4);
 }
 
-function getFlashClass(category, index) {
+function flashClass(category, index) {
   const value = normalize(category);
   if (value.includes("fashion")) return "flash-fashion";
   if (value.includes("home")) return "flash-home";
@@ -253,65 +267,62 @@ function getFlashClass(category, index) {
 
 function renderDeals() {
   if (!dealsSection || !flashGrid) return;
+  const deals = activeDeals();
 
-  const activeDeals = getActiveDeals();
-  if (!activeDeals.length) {
+  if (!deals.length) {
     dealsSection.hidden = true;
     flashGrid.innerHTML = "";
     return;
   }
 
   dealsSection.hidden = false;
-  flashGrid.innerHTML = activeDeals.map((product, index) => {
-    const price = product.price || "Check retailer price";
-    const remaining = formatRemaining(product.dealTimestamp - Date.now());
-
-    return `
-      <a class="flash-card ${getFlashClass(product.category, index)}" href="${escapeHTML(product.link)}" target="_blank" rel="nofollow sponsored noopener">
-        <div>
-          <span>${escapeHTML(product.category || "Limited-time offer")} • Retailer deal</span>
-          <strong>${escapeHTML(product.title)}</strong>
-          <small>${escapeHTML(price)} · Ends in <time data-deal-end="${product.dealTimestamp}">${remaining}</time> →</small>
-        </div>
-      </a>`;
-  }).join("");
+  flashGrid.innerHTML = deals.map((product, index) => `
+    <a class="flash-card ${flashClass(product.category, index)}" href="${escapeHTML(product.link)}" target="_blank" rel="nofollow sponsored noopener">
+      <div>
+        <span>${escapeHTML(product.category || "Limited-time offer")} • Retailer deal</span>
+        <strong>${escapeHTML(product.title)}</strong>
+        <small>${escapeHTML(product.price || "Check retailer price")} · Ends in <time data-deal-end="${product.dealTimestamp}">${formatRemaining(product.dealTimestamp - Date.now())}</time> →</small>
+      </div>
+    </a>`).join("");
 }
 
 function updateDealCountdowns() {
   if (!dealsSection || dealsSection.hidden) return;
-
   let expired = false;
   document.querySelectorAll("[data-deal-end]").forEach((element) => {
     const end = Number(element.dataset.dealEnd);
     const remaining = end - Date.now();
-    if (!Number.isFinite(end) || remaining <= 0) {
-      expired = true;
-      return;
-    }
-    element.textContent = formatRemaining(remaining);
+    if (!Number.isFinite(end) || remaining <= 0) expired = true;
+    else element.textContent = formatRemaining(remaining);
   });
-
   if (expired) renderDeals();
+}
+
+function applyProducts(nextProducts) {
+  products = nextProducts.length ? nextProducts : [...FALLBACK_PRODUCTS];
+  populateCategories();
+  renderProducts();
+  renderDeals();
 }
 
 async function loadProducts() {
   if (!grid) return;
 
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 10000);
+
   try {
-    const response = await fetch(CSV_URL, { cache: "no-store" });
+    const response = await fetch(`${CSV_URL}&_=${Date.now()}`, {
+      cache: "no-store",
+      signal: controller.signal
+    });
     if (!response.ok) throw new Error("Catalog request failed");
-    products = buildProducts(parseCSV(await response.text()));
-    populateCategories();
-    renderProducts();
-    renderDeals();
-  } catch (error) {
-    if (productCount) productCount.textContent = "0";
-    if (dealsSection) dealsSection.hidden = true;
-    grid.innerHTML = `
-      <div class="empty-state">
-        <strong>Our catalog is temporarily unavailable.</strong>
-        Please refresh the page in a moment.
-      </div>`;
+    const loaded = buildProducts(parseCSV(await response.text()));
+    applyProducts(loaded);
+  } catch {
+    applyProducts([...FALLBACK_PRODUCTS]);
+  } finally {
+    clearTimeout(timeout);
   }
 }
 
@@ -320,7 +331,6 @@ searchForm?.addEventListener("submit", (event) => {
   document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" });
   renderProducts();
 });
-
 searchInput?.addEventListener("input", renderProducts);
 categoryFilter?.addEventListener("change", () => {
   pendingCategory = categoryFilter.value;
@@ -338,17 +348,15 @@ categoryCards.forEach((card) => {
 grid?.addEventListener("click", (event) => {
   const saveButton = event.target.closest("[data-save-id]");
   if (!saveButton) return;
-
   const productId = String(saveButton.dataset.saveId);
   const saved = getSavedProducts();
-
   if (saved.has(productId)) saved.delete(productId);
   else saved.add(productId);
-
   saveSavedProducts(saved);
-  saveButton.classList.toggle("is-saved", saved.has(productId));
-  saveButton.setAttribute("aria-label", saved.has(productId) ? "Remove from saved products" : "Save product");
-  saveButton.setAttribute("title", saved.has(productId) ? "Remove from saved products" : "Save product");
+  const isSaved = saved.has(productId);
+  saveButton.classList.toggle("is-saved", isSaved);
+  saveButton.setAttribute("aria-label", isSaved ? "Remove from saved products" : "Save product");
+  saveButton.setAttribute("title", isSaved ? "Remove from saved products" : "Save product");
 });
 
 const initialQuery = new URLSearchParams(window.location.search).get("q");
