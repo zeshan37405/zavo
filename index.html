@@ -3,125 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shop curated fashion, home, beauty, gadgets, and everyday lifestyle products selected for US shoppers.">
+  <meta name="description" content="Discover curated fashion, beauty, home, gadgets, and everyday lifestyle products on Zavo.">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Zavo | Style Your Everyday">
-  <meta property="og:description" content="Discover fashion, home, beauty, gadgets, and lifestyle finds for modern everyday living.">
+  <meta property="og:title" content="Zavo | Big Finds for Everyday Life">
+  <meta property="og:description" content="Shop curated fashion, beauty, home, gadgets, accessories, and everyday finds.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#0f172a">
-  <title>Zavo | Style Your Everyday</title>
+  <meta name="theme-color" content="#ff5a1f">
+  <title>Zavo | Big Finds for Everyday Life</title>
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Zavo",
-    "description": "Curated fashion, home, beauty, gadgets, and lifestyle products for everyday living."
+    "description": "Curated fashion, beauty, home, gadgets, and lifestyle products for everyday living.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://zeshan37405.github.io/smart-gadget-site/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
   }
   </script>
 </head>
 <body>
-  <div class="announcement">Fresh finds added regularly • Curated for US shoppers</div>
+  <div class="announcement">
+    <div class="container announcement-inner">
+      <span>Fresh finds added regularly</span>
+      <span class="announcement-highlight">Curated for US shoppers</span>
+      <span>Secure shopping on retailer websites</span>
+    </div>
+  </div>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Zavo home">
+  <header class="market-header">
+    <div class="container market-header-main">
+      <a class="brand market-brand" href="index.html" aria-label="Zavo home">
         <span class="brand-mark">Z</span>
-        <span>Zavo</span>
+        <span class="brand-word">Zavo</span>
       </a>
 
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#shop">Shop</a>
-        <a href="#categories">Categories</a>
-        <a href="#why-us">Why Us</a>
-        <a href="about.html">About</a>
-      </nav>
+      <form class="market-search" id="searchForm" role="search">
+        <input id="searchInput" type="search" placeholder="Search fashion, beauty, home, gadgets..." aria-label="Search products">
+        <button type="submit" aria-label="Search">Search</button>
+      </form>
 
-      <a class="header-cta" href="#shop">Shop Now</a>
+      <div class="header-actions" aria-label="Quick links">
+        <a href="#deals"><span class="action-icon">⚡</span><span><small>Today’s</small>Deals</span></a>
+        <a href="about.html"><span class="action-icon">☺</span><span><small>Learn about</small>Zavo</span></a>
+      </div>
+    </div>
+
+    <div class="market-nav-wrap">
+      <div class="container market-nav">
+        <a class="departments-link" href="#categories"><span>☰</span> All Categories</a>
+        <nav aria-label="Main navigation">
+          <a href="#deals">Flash Picks</a>
+          <a href="#shop">New Arrivals</a>
+          <a href="#categories">Fashion</a>
+          <a href="#categories">Home & Living</a>
+          <a href="#categories">Beauty</a>
+          <a href="#categories">Gadgets</a>
+        </nav>
+        <a class="nav-about" href="about.html">About Zavo</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="kicker">Style your everyday.</span>
-          <h1>Everything you love, thoughtfully selected.</h1>
-          <p class="hero-copy">Discover fashion, home décor, beauty, gadgets, accessories, and everyday essentials chosen for style, value, and modern living.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#shop">Shop New Arrivals</a>
-            <a class="btn btn-secondary" href="#categories">Browse Categories</a>
+    <section class="marketplace-hero">
+      <div class="container marketplace-grid">
+        <aside class="category-sidebar" aria-label="Popular categories">
+          <h2>Top Categories</h2>
+          <a href="#shop" data-category="Fashion"><span>👗</span> Fashion <b>›</b></a>
+          <a href="#shop" data-category="Home & Living"><span>🏠</span> Home & Living <b>›</b></a>
+          <a href="#shop" data-category="Beauty"><span>✨</span> Beauty <b>›</b></a>
+          <a href="#shop" data-category="Gadgets"><span>🎧</span> Gadgets <b>›</b></a>
+          <a href="#shop"><span>🛍️</span> View All Products <b>›</b></a>
+        </aside>
+
+        <div class="hero-banner">
+          <div class="hero-content">
+            <span class="hero-label">The Zavo Edit</span>
+            <h1>Big finds.<br>Better everyday.</h1>
+            <p>Discover standout fashion, beauty, home, tech, and lifestyle products selected for style, usefulness, and value.</p>
+            <div class="hero-actions">
+              <a class="btn btn-light" href="#shop">Shop New Finds</a>
+              <a class="hero-text-link" href="#categories">Explore categories →</a>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="shopping-orbit orbit-one"></div>
+            <div class="shopping-orbit orbit-two"></div>
+            <div class="shopping-bag">
+              <span>Z</span>
+              <small>STYLE YOUR EVERYDAY</small>
+            </div>
+            <div class="floating-tag tag-one">Beauty</div>
+            <div class="floating-tag tag-two">Home</div>
+            <div class="floating-tag tag-three">Tech</div>
           </div>
         </div>
 
-        <div class="hero-showcase" aria-label="Featured Zavo collection">
-          <div class="showcase-top">
-            <span>Featured Collection</span>
-            <span>2026</span>
-          </div>
-          <div class="showcase-main">
-            <div class="showcase-icon">✦</div>
-            <h2>Find your next favorite.</h2>
-            <p>Fresh styles and smart finds for fashion, home, beauty, tech, and daily life.</p>
-          </div>
-          <div class="showcase-foot">
-            <div class="showcase-stat"><strong>Curated</strong><span>Purposeful selections</span></div>
-            <div class="showcase-stat"><strong>Stylish</strong><span>Modern everyday appeal</span></div>
-            <div class="showcase-stat"><strong>Fresh</strong><span>New product finds</span></div>
-          </div>
+        <div class="promo-stack">
+          <a class="promo-card promo-card-light" href="#shop" data-category="Beauty">
+            <span class="promo-kicker">Beauty Edit</span>
+            <strong>Everyday glow-up picks</strong>
+            <small>Explore now →</small>
+          </a>
+          <a class="promo-card promo-card-dark" href="#shop" data-category="Gadgets">
+            <span class="promo-kicker">Smart Finds</span>
+            <strong>Useful tech for daily life</strong>
+            <small>Discover more →</small>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="trust-strip" aria-label="Shopping information">
-      <div class="container trust-grid">
-        <div class="trust-item"><span class="trust-icon">✓</span><div>Curated Selection<span>Products chosen for style, usefulness, and appeal</span></div></div>
-        <div class="trust-item"><span class="trust-icon">⌕</span><div>Clear Product Details<span>Simple information for faster decisions</span></div></div>
-        <div class="trust-item"><span class="trust-icon">↗</span><div>Direct Retailer Access<span>View current pricing and availability</span></div></div>
+    <section class="service-strip" aria-label="Shopping benefits">
+      <div class="container service-grid">
+        <div><span>✓</span><strong>Curated Selection</strong><small>Useful, stylish product finds</small></div>
+        <div><span>↗</span><strong>Direct Retailer Access</strong><small>Current pricing and availability</small></div>
+        <div><span>⌕</span><strong>Easy Product Discovery</strong><small>Search and filter in seconds</small></div>
+        <div><span>♡</span><strong>Fresh New Arrivals</strong><small>Catalog updated regularly</small></div>
+      </div>
+    </section>
+
+    <section id="deals" class="section deals-section">
+      <div class="container">
+        <div class="market-section-head">
+          <div>
+            <span class="eyebrow">Hot right now</span>
+            <h2>Flash Picks</h2>
+          </div>
+          <div class="deal-timer" aria-label="Deals refresh countdown">
+            <span>Deals refresh in</span>
+            <strong id="dealCountdown">00:00:00</strong>
+          </div>
+          <a href="#shop">See all products →</a>
+        </div>
+
+        <div class="flash-grid">
+          <a class="flash-card flash-fashion" href="#shop" data-category="Fashion">
+            <div><span>Fashion</span><strong>Fresh looks for every day</strong><small>Shop the edit →</small></div>
+            <b>01</b>
+          </a>
+          <a class="flash-card flash-home" href="#shop" data-category="Home & Living">
+            <div><span>Home</span><strong>Easy upgrades for your space</strong><small>Explore home →</small></div>
+            <b>02</b>
+          </a>
+          <a class="flash-card flash-beauty" href="#shop" data-category="Beauty">
+            <div><span>Beauty</span><strong>Trending self-care essentials</strong><small>Browse beauty →</small></div>
+            <b>03</b>
+          </a>
+          <a class="flash-card flash-tech" href="#shop" data-category="Gadgets">
+            <div><span>Gadgets</span><strong>Smart solutions that work</strong><small>Find gadgets →</small></div>
+            <b>04</b>
+          </a>
+        </div>
       </div>
     </section>
 
     <section id="categories" class="section section-white">
       <div class="container">
-        <div class="section-head">
+        <div class="market-section-head simple-head">
           <div>
+            <span class="eyebrow">Browse your way</span>
             <h2>Shop by category</h2>
-            <p>Explore curated collections for your style, space, routine, and everyday life.</p>
           </div>
+          <a href="#shop">View everything →</a>
         </div>
 
-        <div class="category-grid">
-          <a class="category-card" href="#shop" data-category="Fashion">
-            <span class="category-icon">♢</span>
-            <div><strong>Fashion</strong><span>Fresh styles and everyday essentials</span></div>
-          </a>
-          <a class="category-card" href="#shop" data-category="Home & Living">
-            <span class="category-icon">⌂</span>
-            <div><strong>Home & Living</strong><span>Décor and practical finds for your space</span></div>
-          </a>
-          <a class="category-card" href="#shop" data-category="Beauty">
-            <span class="category-icon">✦</span>
-            <div><strong>Beauty</strong><span>Self-care, accessories, and trending picks</span></div>
-          </a>
-          <a class="category-card" href="#shop" data-category="Gadgets">
-            <span class="category-icon">⌁</span>
-            <div><strong>Gadgets</strong><span>Smart products for modern routines</span></div>
-          </a>
+        <div class="round-category-grid">
+          <a class="round-category" href="#shop" data-category="Fashion"><span>👗</span><strong>Fashion</strong><small>Fresh everyday style</small></a>
+          <a class="round-category" href="#shop" data-category="Home & Living"><span>🛋️</span><strong>Home & Living</strong><small>Make your space better</small></a>
+          <a class="round-category" href="#shop" data-category="Beauty"><span>💄</span><strong>Beauty</strong><small>Self-care and accessories</small></a>
+          <a class="round-category" href="#shop" data-category="Gadgets"><span>🎧</span><strong>Gadgets</strong><small>Smart everyday tech</small></a>
+          <a class="round-category" href="#shop"><span>🎁</span><strong>Gift Ideas</strong><small>Interesting finds for anyone</small></a>
+          <a class="round-category" href="#shop"><span>🔥</span><strong>Trending</strong><small>Popular product discoveries</small></a>
         </div>
       </div>
     </section>
 
-    <section id="shop" class="section">
+    <section id="shop" class="section product-market-section">
       <div class="container">
-        <div class="section-head">
+        <div class="market-section-head simple-head product-heading">
           <div>
-            <h2>Featured products</h2>
-            <p>Browse our latest curated finds across fashion, home, beauty, gadgets, and lifestyle.</p>
+            <span class="eyebrow">Recommended for you</span>
+            <h2>Today’s top finds</h2>
+            <p><span id="productCount">0</span> products available to explore</p>
           </div>
         </div>
 
         <div class="shop-toolbar" aria-label="Product filters">
-          <input id="searchInput" class="field" type="search" placeholder="Search products..." aria-label="Search products">
+          <div class="toolbar-label"><span>☷</span> Refine products</div>
           <select id="categoryFilter" class="field" aria-label="Filter by category">
             <option value="all">All Categories</option>
           </select>
@@ -134,7 +208,7 @@
         </div>
 
         <div id="productsGrid" class="products-grid" aria-live="polite">
-          <div class="empty-state"><strong>Loading our latest products...</strong>Please wait a moment.</div>
+          <div class="empty-state"><strong>Loading the latest Zavo finds...</strong>Please wait a moment.</div>
         </div>
 
         <div class="disclosure-note">
@@ -143,96 +217,62 @@
       </div>
     </section>
 
-    <section id="why-us" class="section section-dark">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>A better way to discover what you love</h2>
-            <p>We focus on clear presentation, useful products, modern style, and an easy shopping experience.</p>
-          </div>
+    <section class="feature-banner-section">
+      <div class="container feature-banner">
+        <div>
+          <span class="eyebrow eyebrow-light">Why shoppers use Zavo</span>
+          <h2>Less searching. More discovering.</h2>
+          <p>We organize interesting products into a clean, mobile-friendly experience so you can find useful and stylish products faster.</p>
         </div>
-
-        <div class="value-grid">
-          <article class="value-card">
-            <div class="value-icon">◎</div>
-            <h3>Purposeful Curation</h3>
-            <p>We select products with strong everyday appeal, practical value, or standout style.</p>
-          </article>
-          <article class="value-card">
-            <div class="value-icon">◇</div>
-            <h3>Clean Shopping Experience</h3>
-            <p>A professional, mobile-friendly storefront designed to make discovery simple.</p>
-          </article>
-          <article class="value-card">
-            <div class="value-icon">↻</div>
-            <h3>Fresh Product Updates</h3>
-            <p>Our catalog grows as new and interesting fashion, home, beauty, and lifestyle products become available.</p>
-          </article>
+        <div class="feature-points">
+          <div><span>01</span><strong>Curated, not cluttered</strong><small>Products selected for appeal and everyday value.</small></div>
+          <div><span>02</span><strong>Built for mobile</strong><small>Fast browsing on phones, tablets, and desktops.</small></div>
+          <div><span>03</span><strong>Transparent shopping</strong><small>Purchases happen directly on retailer websites.</small></div>
         </div>
       </div>
     </section>
 
     <section class="section section-white">
       <div class="container">
-        <div class="section-head">
+        <div class="market-section-head simple-head">
           <div>
-            <h2>Shopping information</h2>
-            <p>Helpful details about how product links and purchases work.</p>
+            <span class="eyebrow">Helpful information</span>
+            <h2>Shopping with Zavo</h2>
           </div>
         </div>
 
         <div class="faq-grid">
-          <article class="faq-card">
-            <h3>Do you sell products directly?</h3>
-            <p>Zavo is a curated product discovery website. Purchases are completed on the linked retailer’s website.</p>
-          </article>
-          <article class="faq-card">
-            <h3>Where can I see the latest price?</h3>
-            <p>Use the “View Product” button to see current pricing, availability, and product details from the retailer.</p>
-          </article>
-          <article class="faq-card">
-            <h3>Who handles shipping and returns?</h3>
-            <p>Shipping, delivery, cancellations, and returns are managed by the retailer where the purchase is completed.</p>
-          </article>
-          <article class="faq-card">
-            <h3>How are products selected?</h3>
-            <p>We look for useful, stylish, visually appealing, and practical products that may interest modern US shoppers.</p>
-          </article>
+          <article class="faq-card"><span>01</span><h3>Do you sell products directly?</h3><p>Zavo is a curated product discovery website. Purchases are completed on the linked retailer’s website.</p></article>
+          <article class="faq-card"><span>02</span><h3>Where can I see the latest price?</h3><p>Select “View Deal” to see current pricing, availability, and product details from the retailer.</p></article>
+          <article class="faq-card"><span>03</span><h3>Who handles shipping and returns?</h3><p>Shipping, delivery, cancellations, and returns are managed by the retailer where the purchase is completed.</p></article>
+          <article class="faq-card"><span>04</span><h3>How are products selected?</h3><p>We look for useful, stylish, visually appealing, and practical products that may interest modern US shoppers.</p></article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer market-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="brand" href="index.html"><span class="brand-mark">Z</span><span>Zavo</span></a>
           <p>Curated fashion, home, beauty, gadgets, and lifestyle finds for everyday living.</p>
         </div>
-        <div>
-          <h3 class="footer-title">Explore</h3>
-          <div class="footer-links">
-            <a href="#shop">Shop</a>
-            <a href="#categories">Categories</a>
-            <a href="about.html">About Us</a>
-          </div>
-        </div>
-        <div>
-          <h3 class="footer-title">Legal</h3>
-          <div class="footer-links">
-            <a href="disclosure.html">Affiliate Disclosure</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Use</a>
-          </div>
-        </div>
+        <div><h3 class="footer-title">Explore</h3><div class="footer-links"><a href="#shop">Shop</a><a href="#deals">Flash Picks</a><a href="#categories">Categories</a><a href="about.html">About Us</a></div></div>
+        <div><h3 class="footer-title">Legal</h3><div class="footer-links"><a href="disclosure.html">Affiliate Disclosure</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div></div>
+        <div><h3 class="footer-title">Popular</h3><div class="footer-links"><a href="#categories">Fashion</a><a href="#categories">Home & Living</a><a href="#categories">Beauty</a><a href="#categories">Gadgets</a></div></div>
       </div>
-      <div class="footer-bottom">
-        <span>© <span id="year"></span> Zavo. All rights reserved.</span>
-        <span>Independent product discovery website.</span>
-      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Zavo. All rights reserved.</span><span>Independent product discovery website.</span></div>
     </div>
   </footer>
+
+  <nav class="mobile-dock" aria-label="Mobile navigation">
+    <a href="#top"><span>⌂</span>Home</a>
+    <a href="#categories"><span>☷</span>Categories</a>
+    <a class="mobile-dock-main" href="#shop"><span>🛍</span>Shop</a>
+    <a href="#deals"><span>⚡</span>Deals</a>
+    <a href="about.html"><span>☺</span>About</a>
+  </nav>
 
   <script src="site.js" defer></script>
 </body>
