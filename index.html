@@ -3,137 +3,237 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover useful smart gadgets, tech accessories, and everyday problem-solving products selected for US shoppers.">
+  <meta name="description" content="Shop curated smart gadgets, tech accessories, and practical everyday products selected for US shoppers.">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Smart Gadget Finds">
-  <meta property="og:description" content="Trending gadgets and practical tech finds for everyday life.">
+  <meta property="og:title" content="Smart Gadget | Curated Tech for Everyday Life">
+  <meta property="og:description" content="Discover smart, practical products for home, work, travel, and everyday life.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#111827">
-  <title>Smart Gadget Finds | Trending Tech & Everyday Essentials</title>
-  <style>
-    :root{--bg:#f8fafc;--surface:#fff;--text:#111827;--muted:#64748b;--primary:#4f46e5;--primary-dark:#3730a3;--border:#e2e8f0;--shadow:0 18px 45px rgba(15,23,42,.10);--radius:22px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button,input,select{font:inherit}.container{width:min(1180px,calc(100% - 32px));margin:auto}
-    .topbar{background:#0f172a;color:#e2e8f0;text-align:center;padding:9px 16px;font-size:.9rem}
-    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-    .nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:800}.brand-mark{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--primary),#7c3aed)}.nav-links{display:flex;gap:24px;color:#475569;font-weight:650}.nav-links a:hover{color:var(--primary)}
-    .hero{padding:78px 0 64px;background:radial-gradient(circle at 10% 10%,rgba(99,102,241,.18),transparent 30%),radial-gradient(circle at 90% 20%,rgba(249,115,22,.15),transparent 28%),linear-gradient(180deg,#fff,#f8fafc)}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center}
-    .eyebrow{display:inline-flex;background:#eef2ff;color:var(--primary-dark);border:1px solid #c7d2fe;border-radius:999px;padding:7px 12px;font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-    h1{font-size:clamp(2.55rem,6vw,5.15rem);line-height:.98;letter-spacing:-.055em;margin:22px 0;max-width:760px}.hero p{color:var(--muted);font-size:1.12rem;max-width:680px;margin-bottom:30px}.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 21px;border-radius:14px;border:1px solid transparent;font-weight:800;cursor:pointer;transition:.2s}.btn-primary{background:var(--primary);color:#fff;box-shadow:0 12px 28px rgba(79,70,229,.22)}.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}.btn-light{background:#fff;border-color:var(--border);color:#334155}
-    .hero-card{background:#fff;padding:24px;border:1px solid var(--border);border-radius:28px;box-shadow:var(--shadow)}.hero-visual{min-height:360px;border-radius:22px;display:grid;place-items:center;text-align:center;padding:32px;color:#fff;background:linear-gradient(145deg,#111827,#312e81 60%,#4f46e5)}.gadget-icon{font-size:5.8rem}.hero-visual h2{font-size:1.9rem;margin:10px 0 4px}.hero-visual p{color:#cbd5e1;margin:0}
-    .trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}.trust-item{background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:16px;padding:15px;font-weight:750;color:#334155}.trust-item span{display:block;color:var(--muted);font-size:.84rem;font-weight:500}
-    section{padding:72px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:26px}.section-head h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.04em;margin:0}.section-head p{color:var(--muted);max-width:590px;margin:8px 0 0}
-    .controls{display:grid;grid-template-columns:1fr 240px;gap:14px;margin:28px 0 30px}.field{min-height:52px;width:100%;border:1px solid var(--border);border-radius:14px;background:#fff;padding:0 16px;outline:none}.field:focus{border-color:#818cf8;box-shadow:0 0 0 4px rgba(99,102,241,.12)}
-    .products-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.product-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 30px rgba(15,23,42,.06);transition:.22s;display:flex;flex-direction:column}.product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-    .product-image{aspect-ratio:4/3;background:#eef2f7;overflow:hidden;position:relative}.product-image img{width:100%;height:100%;object-fit:cover}.badge{position:absolute;top:14px;left:14px;background:rgba(15,23,42,.88);color:#fff;padding:6px 10px;border-radius:999px;font-size:.75rem;font-weight:800}
-    .product-body{padding:20px;display:flex;flex-direction:column;flex:1}.product-category{color:var(--primary);font-size:.79rem;text-transform:uppercase;letter-spacing:.08em;font-weight:850}.product-title{font-size:1.18rem;line-height:1.35;margin:8px 0 9px}.product-description{color:var(--muted);margin:0 0 20px;font-size:.95rem}.product-actions{margin-top:auto}.product-actions .btn{width:100%}
-    .status{grid-column:1/-1;background:#fff;border:1px dashed #cbd5e1;border-radius:20px;padding:48px 24px;text-align:center;color:var(--muted)}.status strong{color:var(--text);display:block;font-size:1.22rem;margin-bottom:6px}
-    .why{background:#111827;color:#fff}.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.why-card{padding:24px;border:1px solid #334155;border-radius:20px;background:#172033}.why-card p{color:#aebbd0}.why-icon{font-size:2rem}
-    .disclosure{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:18px;padding:18px 20px;margin-top:36px;font-size:.92rem}
-    footer{background:#0f172a;color:#cbd5e1;padding:44px 0}.footer-grid{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}footer strong{color:#fff}footer p{margin:5px 0 0;color:#94a3b8}
-    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.products-grid{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:1fr}}
-    @media(max-width:680px){.nav-links{display:none}.hero{padding-top:54px}.products-grid,.controls,.trust-row{grid-template-columns:1fr}.section-head{display:block}section{padding:56px 0}.hero-visual{min-height:300px}}
-  </style>
+  <meta name="theme-color" content="#0f172a">
+  <title>Smart Gadget | Curated Tech for Everyday Life</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Smart Gadget",
+    "description": "Curated smart gadgets and practical tech products for everyday life."
+  }
+  </script>
 </head>
 <body>
-  <div class="topbar">Curated smart finds for US shoppers • New products added regularly</div>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#top"><span class="brand-mark">⚡</span><span>Smart Gadget Finds</span></a>
-      <nav class="nav-links"><a href="#products">Shop Finds</a><a href="#why-us">Why Us</a><a href="#disclosure">Disclosure</a></nav>
+  <div class="announcement">New smart finds added regularly • Curated for US shoppers</div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Smart Gadget home">
+        <span class="brand-mark">SG</span>
+        <span>Smart Gadget</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#shop">Shop</a>
+        <a href="#categories">Categories</a>
+        <a href="#why-us">Why Us</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <a class="header-cta" href="#shop">Shop Now</a>
     </div>
   </header>
 
-  <main id="top">
+  <main>
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">Trending tech picks</span>
-          <h1>Smart gadgets that make everyday life easier.</h1>
-          <p>Explore practical tech accessories, clever home gadgets, and useful everyday products selected for value, convenience, and real-world usefulness.</p>
-          <div class="hero-actions"><a class="btn btn-primary" href="#products">Explore Top Finds</a><a class="btn btn-light" href="#why-us">How We Choose</a></div>
-          <div class="trust-row">
-            <div class="trust-item">US-Focused Picks<span>Content written for American shoppers</span></div>
-            <div class="trust-item">Useful Products<span>Problem-solving gadgets, not random clutter</span></div>
-            <div class="trust-item">Simple Shopping<span>Quick links to check the latest deal</span></div>
+          <span class="kicker">Smart products. Better everyday.</span>
+          <h1>Practical technology, thoughtfully selected.</h1>
+          <p class="hero-copy">Discover useful gadgets, clever home products, and everyday tech accessories chosen for convenience, value, and modern living.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#shop">Shop New Arrivals</a>
+            <a class="btn btn-secondary" href="#categories">Browse Categories</a>
           </div>
         </div>
-        <div class="hero-card"><div class="hero-visual"><div><div class="gadget-icon">🔌</div><h2>Practical. Smart. Worth Discovering.</h2><p>Your next favorite gadget may be one scroll away.</p></div></div></div>
-      </div>
-    </section>
 
-    <section id="products">
-      <div class="container">
-        <div class="section-head"><div><h2>Latest Smart Finds</h2><p>Search and filter our newest gadget discoveries. Product listings are loaded directly from our live catalog.</p></div></div>
-        <div class="controls">
-          <input id="searchInput" class="field" type="search" placeholder="Search gadgets, accessories, or keywords...">
-          <select id="categoryFilter" class="field"><option value="all">All Categories</option></select>
+        <div class="hero-showcase" aria-label="Featured smart products">
+          <div class="showcase-top">
+            <span>Featured Collection</span>
+            <span>2026</span>
+          </div>
+          <div class="showcase-main">
+            <div class="showcase-icon">⌁</div>
+            <h2>Designed for the way you live.</h2>
+            <p>Smart solutions for home, work, travel, and everyday routines.</p>
+          </div>
+          <div class="showcase-foot">
+            <div class="showcase-stat"><strong>Curated</strong><span>Purposeful selections</span></div>
+            <div class="showcase-stat"><strong>Practical</strong><span>Everyday usefulness</span></div>
+            <div class="showcase-stat"><strong>Current</strong><span>Fresh product finds</span></div>
+          </div>
         </div>
-        <div id="productsGrid" class="products-grid"><div class="status"><strong>Loading products...</strong>Please wait while we connect to the catalog.</div></div>
-        <div id="disclosure" class="disclosure"><strong>Affiliate Disclosure:</strong> This website may contain affiliate links. We may earn a commission when you purchase through those links, at no extra cost to you. Prices, availability, and product details can change at any time on the seller's website.</div>
       </div>
     </section>
 
-    <section id="why-us" class="why">
+    <section class="trust-strip" aria-label="Shopping information">
+      <div class="container trust-grid">
+        <div class="trust-item"><span class="trust-icon">✓</span><div>Curated Selection<span>Products chosen for usefulness and appeal</span></div></div>
+        <div class="trust-item"><span class="trust-icon">⌕</span><div>Clear Product Details<span>Simple information for faster decisions</span></div></div>
+        <div class="trust-item"><span class="trust-icon">↗</span><div>Direct Retailer Access<span>View current pricing and availability</span></div></div>
+      </div>
+    </section>
+
+    <section id="categories" class="section section-white">
       <div class="container">
-        <div class="section-head"><div><h2>Why shoppers use Smart Gadget Finds</h2><p>Clear, useful recommendations designed to help you discover products faster.</p></div></div>
-        <div class="why-grid">
-          <article class="why-card"><div class="why-icon">🎯</div><h3>Focused Recommendations</h3><p>Gadgets with a clear purpose, practical use, or strong everyday appeal.</p></article>
-          <article class="why-card"><div class="why-icon">📱</div><h3>Mobile-Friendly Browsing</h3><p>Built for fast discovery from Pinterest and mobile devices.</p></article>
-          <article class="why-card"><div class="why-icon">✨</div><h3>Fresh Discoveries</h3><p>New finds appear through the live product catalog.</p></article>
+        <div class="section-head">
+          <div>
+            <h2>Shop by category</h2>
+            <p>Explore product collections built around the most useful parts of everyday life.</p>
+          </div>
+        </div>
+
+        <div class="category-grid">
+          <a class="category-card" href="#shop" data-category="Tech Accessories">
+            <span class="category-icon">⌨</span>
+            <div><strong>Tech Accessories</strong><span>Practical add-ons for your devices</span></div>
+          </a>
+          <a class="category-card" href="#shop" data-category="Smart Home">
+            <span class="category-icon">⌂</span>
+            <div><strong>Smart Home</strong><span>Clever products for modern spaces</span></div>
+          </a>
+          <a class="category-card" href="#shop" data-category="Travel">
+            <span class="category-icon">✈</span>
+            <div><strong>Travel Essentials</strong><span>Useful gear for life on the move</span></div>
+          </a>
+          <a class="category-card" href="#shop" data-category="Everyday Gadgets">
+            <span class="category-icon">✦</span>
+            <div><strong>Everyday Gadgets</strong><span>Small upgrades with real utility</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Featured products</h2>
+            <p>Browse our latest curated finds and discover practical products for everyday use.</p>
+          </div>
+        </div>
+
+        <div class="shop-toolbar" aria-label="Product filters">
+          <input id="searchInput" class="field" type="search" placeholder="Search products..." aria-label="Search products">
+          <select id="categoryFilter" class="field" aria-label="Filter by category">
+            <option value="all">All Categories</option>
+          </select>
+          <select id="sortFilter" class="field" aria-label="Sort products">
+            <option value="featured">Featured</option>
+            <option value="az">Name: A–Z</option>
+            <option value="za">Name: Z–A</option>
+            <option value="category">By Category</option>
+          </select>
+        </div>
+
+        <div id="productsGrid" class="products-grid" aria-live="polite">
+          <div class="empty-state"><strong>Loading our latest products...</strong>Please wait a moment.</div>
+        </div>
+
+        <div class="disclosure-note">
+          <strong>Affiliate disclosure:</strong> Some links on this website are affiliate links. We may earn a commission when you make a purchase through those links, at no extra cost to you. Pricing, availability, shipping, and returns are handled by the linked retailer.
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" class="section section-dark">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>A better way to discover useful products</h2>
+            <p>We focus on clear presentation, practical value, and products that fit modern everyday life.</p>
+          </div>
+        </div>
+
+        <div class="value-grid">
+          <article class="value-card">
+            <div class="value-icon">◎</div>
+            <h3>Purposeful Curation</h3>
+            <p>We prioritize products with a clear use, practical benefit, or strong everyday appeal.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon">◇</div>
+            <h3>Clean Shopping Experience</h3>
+            <p>A professional, mobile-friendly storefront designed to make discovery simple.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon">↻</div>
+            <h3>Fresh Product Updates</h3>
+            <p>Our catalog is updated as new and interesting products become available.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Shopping information</h2>
+            <p>Helpful details about how product links and purchases work.</p>
+          </div>
+        </div>
+
+        <div class="faq-grid">
+          <article class="faq-card">
+            <h3>Do you sell products directly?</h3>
+            <p>Smart Gadget is a curated product discovery website. Purchases are completed on the linked retailer’s website.</p>
+          </article>
+          <article class="faq-card">
+            <h3>Where can I see the latest price?</h3>
+            <p>Use the “View Product” button to see current pricing, availability, and product details from the retailer.</p>
+          </article>
+          <article class="faq-card">
+            <h3>Who handles shipping and returns?</h3>
+            <p>Shipping, delivery, cancellations, and returns are managed by the retailer where the purchase is completed.</p>
+          </article>
+          <article class="faq-card">
+            <h3>How are products selected?</h3>
+            <p>We look for useful, visually appealing, and practical products that may interest modern US shoppers.</p>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer><div class="container footer-grid"><div><strong>Smart Gadget Finds</strong><p>Useful tech discoveries for everyday life.</p></div><div>© <span id="year"></span> Smart Gadget Finds.</div></div></footer>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html"><span class="brand-mark">SG</span><span>Smart Gadget</span></a>
+          <p>Curated smart products and practical technology for everyday life.</p>
+        </div>
+        <div>
+          <h3 class="footer-title">Explore</h3>
+          <div class="footer-links">
+            <a href="#shop">Shop</a>
+            <a href="#categories">Categories</a>
+            <a href="about.html">About Us</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-title">Legal</h3>
+          <div class="footer-links">
+            <a href="disclosure.html">Affiliate Disclosure</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Smart Gadget. All rights reserved.</span>
+        <span>Independent product discovery website.</span>
+      </div>
+    </div>
+  </footer>
 
-  <script>
-    const SHEET_ID="1UykHn4JGBxrrVW61cClI0yGqm5MaRKdBl0e-SA1boKE";
-    const CSV_URL=`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=0`;
-    const grid=document.getElementById("productsGrid"),searchInput=document.getElementById("searchInput"),categoryFilter=document.getElementById("categoryFilter");
-    document.getElementById("year").textContent=new Date().getFullYear();
-    let products=[];
-
-    function parseCSV(text){
-      const rows=[];let row=[],cell="",quoted=false;
-      for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];
-        if(c=='"'&&quoted&&n=='"'){cell+='"';i++}
-        else if(c=='"')quoted=!quoted;
-        else if(c==","&&!quoted){row.push(cell.trim());cell=""}
-        else if((c=="\n"||c=="\r")&&!quoted){if(c=="\r"&&n=="\n")i++;row.push(cell.trim());if(row.some(v=>v!==""))rows.push(row);row=[];cell=""}
-        else cell+=c;
-      }
-      if(cell.length||row.length){row.push(cell.trim());rows.push(row)}return rows;
-    }
-    const esc=(v="")=>String(v).replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
-    const norm=v=>v.toLowerCase().trim().replace(/\s+/g," ");
-    const published=v=>!String(v||"").trim()||["yes","true","1","publish","published","live"].includes(String(v).trim().toLowerCase());
-
-    function buildProducts(rows){
-      if(rows.length<2)return[];
-      const h=rows[0].map(norm),idx=(...names)=>names.map(norm).map(n=>h.indexOf(n)).find(i=>i>=0)??-1;
-      const x={id:idx("id"),title:idx("title"),description:idx("description"),image:idx("image url","image"),link:idx("affiliate link","link"),category:idx("category"),keywords:idx("keywords"),alt:idx("alt text"),publish:idx("publish","status")};
-      return rows.slice(1).map((r,i)=>({id:x.id>=0?r[x.id]:i+1,title:x.title>=0?r[x.title]:"",description:x.description>=0?r[x.description]:"",image:x.image>=0?r[x.image]:"",link:x.link>=0?r[x.link]:"",category:x.category>=0?r[x.category]:"Gadgets",keywords:x.keywords>=0?r[x.keywords]:"",alt:x.alt>=0?r[x.alt]:"",publish:x.publish>=0?r[x.publish]:""})).filter(p=>p.title&&published(p.publish));
-    }
-
-    function render(){
-      const q=searchInput.value.trim().toLowerCase(),cat=categoryFilter.value;
-      const list=products.filter(p=>`${p.title} ${p.description} ${p.category} ${p.keywords}`.toLowerCase().includes(q)&&(cat=="all"||p.category==cat));
-      if(!list.length){grid.innerHTML=`<div class="status"><strong>${products.length?"No matching products found.":"Products are coming soon."}</strong>${products.length?"Try a different search or category.":"Add product rows to the Google Sheet and they will appear here automatically."}</div>`;return}
-      grid.innerHTML=list.map(p=>`<article class="product-card"><div class="product-image"><img src="${esc(p.image||"https://placehold.co/800x600/f1f5f9/475569?text=Smart+Gadget")}" alt="${esc(p.alt||p.title)}" loading="lazy"><span class="badge">Smart Find</span></div><div class="product-body"><div class="product-category">${esc(p.category||"Gadgets")}</div><h3 class="product-title">${esc(p.title)}</h3><p class="product-description">${esc(p.description||"A useful smart find selected for everyday convenience.")}</p><div class="product-actions"><a class="btn btn-primary" href="${esc(/^https?:\/\//i.test(p.link)?p.link:"#")}" target="_blank" rel="nofollow sponsored noopener">Check Latest Deal</a></div></div></article>`).join("");
-    }
-
-    async function load(){
-      try{
-        const res=await fetch(CSV_URL,{cache:"no-store"});if(!res.ok)throw Error();
-        products=buildProducts(parseCSV(await res.text()));
-        const cats=[...new Set(products.map(p=>p.category).filter(Boolean))].sort();
-        categoryFilter.innerHTML='<option value="all">All Categories</option>'+cats.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
-        render();
-      }catch(e){grid.innerHTML='<div class="status"><strong>The product catalog could not be loaded.</strong>Share the Google Sheet as “Anyone with the link can view,” then refresh.</div>'}
-    }
-    searchInput.addEventListener("input",render);categoryFilter.addEventListener("change",render);load();
-  </script>
+  <script src="site.js" defer></script>
 </body>
 </html>
