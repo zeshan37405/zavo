@@ -3,63 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover curated fashion, beauty, home, gadgets, and everyday lifestyle products on Zavo.">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Zavo | Big Finds for Everyday Life">
-  <meta property="og:description" content="Shop curated fashion, beauty, home, gadgets, accessories, and everyday finds.">
-  <meta property="og:type" content="website">
+  <title>Zavo | Curated Home, Beauty, Fashion & Gadget Finds</title>
+  <meta name="description" content="Discover curated home, beauty, fashion and gadget finds on Zavo, including a 16-color LED sunset projection lamp with remote control.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://zeshan37405.github.io/smart-gadget-site/">
   <meta name="theme-color" content="#ff5a1f">
-  <title>Zavo | Big Finds for Everyday Life</title>
+
+  <meta property="og:site_name" content="Zavo">
+  <meta property="og:title" content="Zavo | Curated Home, Beauty, Fashion & Gadget Finds">
+  <meta property="og:description" content="Find useful, stylish products faster with Zavo's curated product catalog.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zeshan37405.github.io/smart-gadget-site/">
+  <meta property="og:image" content="https://zeshan37405.github.io/smart-gadget-site/images/16-color-led-sunset-projection-lamp.png">
+  <meta property="og:image:alt" content="16-color LED sunset projection lamp with remote control">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zavo | Curated Product Finds">
+  <meta name="twitter:description" content="Curated home, beauty, fashion and gadget finds for everyday life.">
+  <meta name="twitter:image" content="https://zeshan37405.github.io/smart-gadget-site/images/16-color-led-sunset-projection-lamp.png">
+
+  <link rel="preload" as="image" href="https://zeshan37405.github.io/smart-gadget-site/images/16-color-led-sunset-projection-lamp.png">
   <link rel="stylesheet" href="styles.css">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Zavo",
-    "description": "Curated fashion, beauty, home, gadgets, and lifestyle products for everyday living.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://zeshan37405.github.io/smart-gadget-site/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://zeshan37405.github.io/smart-gadget-site/#organization",
+        "name": "Zavo",
+        "url": "https://zeshan37405.github.io/smart-gadget-site/",
+        "description": "An independent affiliate product discovery website."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://zeshan37405.github.io/smart-gadget-site/#website",
+        "url": "https://zeshan37405.github.io/smart-gadget-site/",
+        "name": "Zavo",
+        "publisher": {
+          "@id": "https://zeshan37405.github.io/smart-gadget-site/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://zeshan37405.github.io/smart-gadget-site/?q={search_term_string}#shop"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://zeshan37405.github.io/smart-gadget-site/#webpage",
+        "url": "https://zeshan37405.github.io/smart-gadget-site/",
+        "name": "Zavo Curated Product Finds",
+        "isPartOf": {
+          "@id": "https://zeshan37405.github.io/smart-gadget-site/#website"
+        },
+        "primaryImageOfPage": "https://zeshan37405.github.io/smart-gadget-site/images/16-color-led-sunset-projection-lamp.png",
+        "mainEntity": {
+          "@type": "ItemList",
+          "numberOfItems": 1,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "url": "https://zeshan37405.github.io/smart-gadget-site/products/16-color-led-sunset-projection-lamp.html",
+              "name": "16-Color LED Sunset Projection Lamp with Remote Control"
+            }
+          ]
+        }
+      }
+    ]
   }
   </script>
 </head>
 <body id="top">
   <div class="announcement">
     <div class="container announcement-inner">
-      <span>Fresh product discoveries added regularly</span>
-      <span class="announcement-highlight">Curated for US shoppers</span>
+      <span>Curated product discoveries</span>
+      <span class="announcement-highlight">For US shoppers</span>
       <span>Purchases are completed on retailer websites</span>
     </div>
   </div>
 
   <header class="market-header">
     <div class="container market-header-main">
-      <a class="brand market-brand" href="index.html" aria-label="Zavo home">
+      <a class="brand market-brand" href="./" aria-label="Zavo home">
         <span class="brand-mark">Z</span>
         <span class="brand-word">Zavo</span>
       </a>
 
       <form class="market-search" id="searchForm" role="search">
-        <input id="searchInput" type="search" placeholder="Search fashion, beauty, home, gadgets..." aria-label="Search products">
-        <button type="submit" aria-label="Search">Search</button>
+        <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products">
+        <button type="submit">Search</button>
       </form>
 
       <div class="header-actions" aria-label="Quick links">
-        <a href="#categories"><span class="action-icon">☷</span><span><small>Browse by</small>Category</span></a>
-        <a href="about.html"><span class="action-icon">☺</span><span><small>Learn about</small>Zavo</span></a>
+        <a href="#shop">Products</a>
+        <a href="#categories">Categories</a>
+        <a href="about.html">About</a>
       </div>
     </div>
 
     <div class="market-nav-wrap">
       <div class="container market-nav">
-        <a class="departments-link" href="#categories"><span>☰</span> All Categories</a>
+        <a class="departments-link" href="#shop"><span>☰</span> Browse Products</a>
         <nav aria-label="Main navigation">
           <a href="#shop">New Arrivals</a>
-          <a href="#categories">Fashion</a>
           <a href="#categories">Home & Living</a>
           <a href="#categories">Beauty</a>
+          <a href="#categories">Fashion</a>
           <a href="#categories">Gadgets</a>
         </nav>
         <a class="nav-about" href="about.html">About Zavo</a>
@@ -68,52 +123,103 @@
   </header>
 
   <main>
-    <section class="marketplace-hero">
-      <div class="container marketplace-grid">
-        <aside class="category-sidebar" aria-label="Popular categories">
-          <h2>Top Categories</h2>
-          <a href="#shop" data-category="Fashion"><span>👗</span> Fashion <b>›</b></a>
-          <a href="#shop" data-category="Home & Living"><span>🏠</span> Home & Living <b>›</b></a>
-          <a href="#shop" data-category="Beauty"><span>✨</span> Beauty <b>›</b></a>
-          <a href="#shop" data-category="Gadgets"><span>🎧</span> Gadgets <b>›</b></a>
-          <a href="#shop"><span>🛍️</span> View All Products <b>›</b></a>
-        </aside>
-
-        <div class="hero-banner">
-          <div class="hero-content">
-            <span class="hero-label">The Zavo Edit</span>
-            <h1>Big finds.<br>Better everyday.</h1>
-            <p>Discover standout fashion, beauty, home, tech, and lifestyle products selected for style, usefulness, and value.</p>
-            <div class="hero-actions">
-              <a class="btn btn-light" href="#shop">Explore Products</a>
-              <a class="hero-text-link" href="#categories">Browse categories →</a>
-            </div>
-          </div>
-
-          <div class="hero-visual" aria-hidden="true">
-            <div class="shopping-orbit orbit-one"></div>
-            <div class="shopping-orbit orbit-two"></div>
-            <div class="shopping-bag">
-              <span>Z</span>
-              <small>STYLE YOUR EVERYDAY</small>
-            </div>
-            <div class="floating-tag tag-one">Beauty</div>
-            <div class="floating-tag tag-two">Home</div>
-            <div class="floating-tag tag-three">Tech</div>
+    <section class="compact-hero">
+      <div class="container compact-hero-card">
+        <div class="compact-hero-copy">
+          <span class="hero-label">The Zavo Edit</span>
+          <h1>Useful finds, without the clutter.</h1>
+          <p>Discover curated home, beauty, fashion and gadget products selected for style, usefulness and everyday value.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#shop">Shop featured products</a>
+            <a class="hero-text-link" href="#categories">Browse categories →</a>
           </div>
         </div>
+        <a class="featured-preview" href="products/16-color-led-sunset-projection-lamp.html" aria-label="View the featured sunset projection lamp">
+          <img src="images/16-color-led-sunset-projection-lamp.png" width="1536" height="1536" alt="" decoding="async">
+          <span><small>Featured now</small><strong>16-Color Sunset Projection Lamp</strong></span>
+        </a>
+      </div>
+    </section>
 
-        <div class="promo-stack">
-          <a class="promo-card promo-card-light" href="#shop" data-category="Beauty">
-            <span class="promo-kicker">Beauty</span>
-            <strong>Everyday beauty and self-care finds</strong>
-            <small>Explore products →</small>
-          </a>
-          <a class="promo-card promo-card-dark" href="#shop" data-category="Gadgets">
-            <span class="promo-kicker">Gadgets</span>
-            <strong>Useful tech for daily life</strong>
-            <small>Explore products →</small>
-          </a>
+    <section id="shop" class="section product-market-section">
+      <div class="container">
+        <div class="market-section-head product-heading">
+          <div>
+            <span class="eyebrow">Featured catalog</span>
+            <h2>Products worth a closer look</h2>
+            <p><span id="productCount">1</span> product available to explore</p>
+          </div>
+          <a href="products/16-color-led-sunset-projection-lamp.html">View product details →</a>
+        </div>
+
+        <div class="shop-toolbar" aria-label="Product filters">
+          <div class="toolbar-label"><span>☷</span> Refine products</div>
+          <select id="categoryFilter" class="field" aria-label="Filter by category">
+            <option value="all">All Categories</option>
+            <option value="Home & Living">Home & Living</option>
+          </select>
+          <select id="sortFilter" class="field" aria-label="Sort products">
+            <option value="featured">Featured</option>
+            <option value="az">Name: A–Z</option>
+            <option value="za">Name: Z–A</option>
+            <option value="category">By Category</option>
+          </select>
+        </div>
+
+        <div id="productsGrid" class="products-grid single-product" aria-live="polite">
+          <article class="product-card">
+            <a class="product-media product-media-link" href="products/16-color-led-sunset-projection-lamp.html" aria-label="View details for 16-Color LED Sunset Projection Lamp">
+              <img data-product-image data-fallback-stage="1" src="images/16-color-led-sunset-projection-lamp.png" width="1536" height="1536" alt="16-color LED sunset projection lamp with remote control in a warm bedroom setting" loading="eager" fetchpriority="high" decoding="async">
+              <span class="product-badge">Zavo Pick</span>
+            </a>
+            <button class="product-save" type="button" data-save-id="1" aria-label="Save product" title="Save product">♡</button>
+            <div class="product-body">
+              <div class="product-category">Home &amp; Living</div>
+              <h3 class="product-title"><a href="products/16-color-led-sunset-projection-lamp.html">16-Color LED Sunset Projection Lamp with Remote Control</a></h3>
+              <p class="product-description">Create a warm, colorful atmosphere in bedrooms, living rooms, parties and photography setups with this USB-powered 16-color LED projection lamp.</p>
+              <div class="product-confidence">✓ Zavo curated <span>• Retailer listing</span></div>
+              <div class="product-meta">
+                <a class="product-details-link" href="products/16-color-led-sunset-projection-lamp.html">Product details</a>
+                <a class="btn btn-primary product-link" href="https://s.click.aliexpress.com/e/_c3yYJHFD" target="_blank" rel="nofollow sponsored noopener">View retailer deal</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="disclosure-note">
+          <strong>Affiliate disclosure:</strong> Some links are affiliate links. Zavo may earn a commission when a purchase is completed through those links, at no extra cost to the shopper. Current pricing, availability, shipping and returns are handled by the linked retailer.
+        </div>
+      </div>
+    </section>
+
+    <section id="deals" class="section deals-section" hidden>
+      <div class="container">
+        <div class="market-section-head">
+          <div>
+            <span class="eyebrow">Verified retailer timing</span>
+            <h2>Limited-time deals</h2>
+          </div>
+          <a href="#shop">See all products →</a>
+        </div>
+        <div id="flashGrid" class="flash-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="categories" class="section section-white">
+      <div class="container">
+        <div class="market-section-head">
+          <div>
+            <span class="eyebrow">Browse your way</span>
+            <h2>Shop by category</h2>
+          </div>
+          <a href="#shop">View products →</a>
+        </div>
+
+        <div class="round-category-grid">
+          <a class="round-category" href="#shop" data-category="Home & Living"><span>🛋️</span><strong>Home &amp; Living</strong><small>Products for modern spaces</small></a>
+          <a class="round-category" href="#shop" data-category="Beauty"><span>💄</span><strong>Beauty</strong><small>Self-care and accessories</small></a>
+          <a class="round-category" href="#shop" data-category="Fashion"><span>👗</span><strong>Fashion</strong><small>Fresh everyday style</small></a>
+          <a class="round-category" href="#shop" data-category="Gadgets"><span>🎧</span><strong>Gadgets</strong><small>Useful everyday tech</small></a>
         </div>
       </div>
     </section>
@@ -127,82 +233,16 @@
       </div>
     </section>
 
-    <section id="deals" class="section deals-section" hidden>
-      <div class="container">
-        <div class="market-section-head simple-head">
-          <div>
-            <span class="eyebrow">Verified retailer timing</span>
-            <h2>Limited-time deals</h2>
-            <p>Countdowns appear only when a valid retailer-provided end time is available in the product catalog.</p>
-          </div>
-          <a href="#shop">See all products →</a>
-        </div>
-        <div id="flashGrid" class="flash-grid" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <section id="categories" class="section section-white">
-      <div class="container">
-        <div class="market-section-head simple-head">
-          <div>
-            <span class="eyebrow">Browse your way</span>
-            <h2>Shop by category</h2>
-          </div>
-          <a href="#shop">View everything →</a>
-        </div>
-
-        <div class="round-category-grid">
-          <a class="round-category" href="#shop" data-category="Fashion"><span>👗</span><strong>Fashion</strong><small>Fresh everyday style</small></a>
-          <a class="round-category" href="#shop" data-category="Home & Living"><span>🛋️</span><strong>Home & Living</strong><small>Products for modern spaces</small></a>
-          <a class="round-category" href="#shop" data-category="Beauty"><span>💄</span><strong>Beauty</strong><small>Self-care and accessories</small></a>
-          <a class="round-category" href="#shop" data-category="Gadgets"><span>🎧</span><strong>Gadgets</strong><small>Smart everyday tech</small></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="shop" class="section product-market-section">
-      <div class="container">
-        <div class="market-section-head simple-head product-heading">
-          <div>
-            <span class="eyebrow">Curated catalog</span>
-            <h2>Explore current product listings</h2>
-            <p><span id="productCount">0</span> products available to explore</p>
-          </div>
-        </div>
-
-        <div class="shop-toolbar" aria-label="Product filters">
-          <div class="toolbar-label"><span>☷</span> Refine products</div>
-          <select id="categoryFilter" class="field" aria-label="Filter by category">
-            <option value="all">All Categories</option>
-          </select>
-          <select id="sortFilter" class="field" aria-label="Sort products">
-            <option value="featured">Featured</option>
-            <option value="az">Name: A–Z</option>
-            <option value="za">Name: Z–A</option>
-            <option value="category">By Category</option>
-          </select>
-        </div>
-
-        <div id="productsGrid" class="products-grid" aria-live="polite">
-          <div class="empty-state"><strong>Loading the latest Zavo finds...</strong>Please wait a moment.</div>
-        </div>
-
-        <div class="disclosure-note">
-          <strong>Affiliate disclosure:</strong> Some links on this website are affiliate links. We may earn a commission when you make a purchase through those links, at no extra cost to you. Pricing, availability, shipping, deal timing, and returns are handled by the linked retailer.
-        </div>
-      </div>
-    </section>
-
     <section class="feature-banner-section">
       <div class="container feature-banner">
         <div>
           <span class="eyebrow eyebrow-light">Why shoppers use Zavo</span>
           <h2>Less searching. More discovering.</h2>
-          <p>We organize interesting products into a clean, mobile-friendly experience so you can find useful and stylish products faster.</p>
+          <p>We organize useful products into a fast, mobile-friendly experience so shoppers can compare interesting finds without unnecessary clutter.</p>
         </div>
         <div class="feature-points">
           <div><span>01</span><strong>Curated, not cluttered</strong><small>Products selected for appeal and everyday value.</small></div>
-          <div><span>02</span><strong>Responsive by design</strong><small>Fast browsing on phones, tablets, and desktops.</small></div>
+          <div><span>02</span><strong>Built for mobile</strong><small>Products appear early and pages stay easy to browse.</small></div>
           <div><span>03</span><strong>Transparent shopping</strong><small>Purchases happen directly on retailer websites.</small></div>
         </div>
       </div>
@@ -210,18 +250,17 @@
 
     <section class="section section-white">
       <div class="container">
-        <div class="market-section-head simple-head">
+        <div class="market-section-head">
           <div>
             <span class="eyebrow">Helpful information</span>
             <h2>Shopping with Zavo</h2>
           </div>
         </div>
-
         <div class="faq-grid">
-          <article class="faq-card"><span>01</span><h3>Do you sell products directly?</h3><p>Zavo is a curated product discovery website. Purchases are completed on the linked retailer’s website.</p></article>
-          <article class="faq-card"><span>02</span><h3>Where can I see the latest price?</h3><p>Select “View Deal” to see current pricing, availability, and product details from the retailer.</p></article>
-          <article class="faq-card"><span>03</span><h3>Who handles shipping and returns?</h3><p>Shipping, delivery, cancellations, and returns are managed by the retailer where the purchase is completed.</p></article>
-          <article class="faq-card"><span>04</span><h3>How are products selected?</h3><p>We look for useful, stylish, visually appealing, and practical products that may interest modern US shoppers.</p></article>
+          <article class="faq-card"><span>01</span><h3>Does Zavo sell products directly?</h3><p>No. Zavo is a curated product discovery website. Purchases are completed on linked retailer websites.</p></article>
+          <article class="faq-card"><span>02</span><h3>Where is the current price shown?</h3><p>Select “View retailer deal” to check the latest price, availability and product details on the retailer’s website.</p></article>
+          <article class="faq-card"><span>03</span><h3>Who handles shipping and returns?</h3><p>Shipping, delivery, cancellations and returns are managed by the retailer where the purchase is completed.</p></article>
+          <article class="faq-card"><span>04</span><h3>How are products selected?</h3><p>We look for useful, visually appealing and practical products that may interest modern shoppers.</p></article>
         </div>
       </div>
     </section>
@@ -231,12 +270,12 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="brand" href="index.html"><span class="brand-mark">Z</span><span>Zavo</span></a>
-          <p>Curated fashion, home, beauty, gadgets, and lifestyle finds for everyday living.</p>
+          <a class="brand" href="./"><span class="brand-mark">Z</span><span>Zavo</span></a>
+          <p>Curated home, beauty, fashion, gadget and lifestyle finds for everyday living.</p>
         </div>
         <div><h3 class="footer-title">Explore</h3><div class="footer-links"><a href="#shop">Products</a><a href="#categories">Categories</a><a href="about.html">About Us</a></div></div>
         <div><h3 class="footer-title">Legal</h3><div class="footer-links"><a href="disclosure.html">Affiliate Disclosure</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div></div>
-        <div><h3 class="footer-title">Popular</h3><div class="footer-links"><a href="#categories">Fashion</a><a href="#categories">Home & Living</a><a href="#categories">Beauty</a><a href="#categories">Gadgets</a></div></div>
+        <div><h3 class="footer-title">Featured</h3><div class="footer-links"><a href="products/16-color-led-sunset-projection-lamp.html">Sunset Projection Lamp</a><a href="#categories">Home &amp; Living</a></div></div>
       </div>
       <div class="footer-bottom"><span>© <span id="year"></span> Zavo. All rights reserved.</span><span>Independent affiliate product discovery website.</span></div>
     </div>
