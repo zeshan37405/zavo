@@ -1,18 +1,19 @@
 const SHEET_ID = "1UykHn4JGBxrrVW61cClI0yGqm5MaRKdBl0e-SA1boKE";
 const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=0`;
-
-const PRODUCT_IMAGE_PRIMARY = "https://zeshan37405.github.io/smart-gadget-site/images/16-color-led-sunset-projection-lamp.png?v=99508eb";
+const SITE_ROOT = "https://zeshan37405.github.io/smart-gadget-site/";
+const PRODUCT_PAGE = `${SITE_ROOT}products/16-color-led-sunset-projection-lamp.html`;
+const PRODUCT_IMAGE_PRIMARY = `${SITE_ROOT}images/16-color-led-sunset-projection-lamp.png`;
 const PRODUCT_IMAGE_BACKUP = "https://raw.githubusercontent.com/zeshan37405/smart-gadget-site/99508eb2f16db21dd3a1e81f0cc088f841a02821/images/16-color-led-sunset-projection-lamp.png";
 
 const FALLBACK_PRODUCTS = [{
   id: "1",
   title: "16-Color LED Sunset Projection Lamp with Remote Control",
-  description: "Create a warm, colorful atmosphere in bedrooms, living rooms, parties, photography setups, and gaming spaces with this USB-powered 16-color LED sunset projection lamp.",
+  description: "Create a warm, colorful atmosphere in bedrooms, living rooms, parties and photography setups with this USB-powered 16-color LED sunset projection lamp.",
   image: PRODUCT_IMAGE_PRIMARY,
   link: "https://s.click.aliexpress.com/e/_c3yYJHFD",
   category: "Home & Living",
   keywords: "sunset lamp LED projection light RGB night light bedroom decor room aesthetic ambient lighting USB lamp remote control lamp",
-  alt: "16-color LED sunset projection lamp with remote control",
+  alt: "16-color LED sunset projection lamp with remote control in a warm bedroom setting",
   publish: "Yes",
   price: "Check latest price",
   dealEnd: ""
@@ -31,7 +32,7 @@ const year = document.getElementById("year");
 
 if (year) year.textContent = new Date().getFullYear();
 
-let products = [];
+let products = [...FALLBACK_PRODUCTS];
 let pendingCategory = "all";
 
 function parseCSV(text) {
@@ -152,6 +153,14 @@ function sortProducts(list, order) {
   return result;
 }
 
+function getProductPage(product) {
+  const identifier = normalize(`${product.id} ${product.title}`);
+  if (identifier.includes("16-color") || identifier.startsWith("1 ")) {
+    return PRODUCT_PAGE;
+  }
+  return "";
+}
+
 function getSavedProducts() {
   try {
     return new Set(JSON.parse(localStorage.getItem("zavoSavedProducts") || "[]").map(String));
@@ -164,7 +173,7 @@ function saveSavedProducts(saved) {
   try {
     localStorage.setItem("zavoSavedProducts", JSON.stringify([...saved]));
   } catch {
-    // Website remains usable when storage is unavailable.
+    // The catalog remains usable when storage is unavailable.
   }
 }
 
@@ -187,7 +196,7 @@ function attachImageFallbacks() {
         return;
       }
 
-      image.alt = "Product image temporarily unavailable";
+      image.alt = "";
       image.style.display = "none";
       image.parentElement?.classList.add("image-unavailable");
     });
@@ -204,34 +213,44 @@ function renderProducts() {
   const saved = getSavedProducts();
 
   if (productCount) productCount.textContent = String(visible.length);
+  grid.classList.toggle("single-product", visible.length === 1);
 
   if (!visible.length) {
-    grid.innerHTML = `<div class="empty-state"><strong>${products.length ? "No products match your search." : "New products are being added."}</strong>${products.length ? "Try a different keyword or category." : "Please check back soon."}</div>`;
+    grid.innerHTML = `<div class="empty-state"><strong>No products match your search.</strong>Try a different keyword or category.</div>`;
     return;
   }
 
   grid.innerHTML = visible.map((product) => {
     const productId = String(product.id || product.title);
-    const safeLink = /^https?:\/\//i.test(product.link) ? product.link : "#";
+    const retailerLink = /^https?:\/\//i.test(product.link) ? product.link : "#";
     const image = /^https?:\/\//i.test(product.image) ? product.image : PRODUCT_IMAGE_PRIMARY;
-    const price = product.price || "Check latest price";
+    const productPage = getProductPage(product);
+    const fallbackStage = image === PRODUCT_IMAGE_PRIMARY ? "1" : "0";
     const savedClass = saved.has(productId) ? " is-saved" : "";
     const savedLabel = saved.has(productId) ? "Remove from saved products" : "Save product";
+    const mediaOpen = productPage ? `<a class="product-media product-media-link" href="${escapeHTML(productPage)}" aria-label="View details for ${escapeHTML(product.title)}">` : `<div class="product-media">`;
+    const mediaClose = productPage ? `</a>` : `</div>`;
+    const title = productPage
+      ? `<a href="${escapeHTML(productPage)}">${escapeHTML(product.title)}</a>`
+      : escapeHTML(product.title);
+    const detailLink = productPage
+      ? `<a class="product-details-link" href="${escapeHTML(productPage)}">Product details</a>`
+      : `<span></span>`;
 
     return `<article class="product-card">
-      <div class="product-media">
-        <img data-product-image data-fallback-stage="0" src="${escapeHTML(image)}" alt="${escapeHTML(product.alt || product.title)}" loading="eager" decoding="async">
+      ${mediaOpen}
+        <img data-product-image data-fallback-stage="${fallbackStage}" src="${escapeHTML(image)}" width="1536" height="1536" alt="${escapeHTML(product.alt || product.title)}" loading="eager" decoding="async">
         <span class="product-badge">Zavo Pick</span>
-        <button class="product-save${savedClass}" type="button" data-save-id="${escapeHTML(productId)}" aria-label="${savedLabel}" title="${savedLabel}">♡</button>
-      </div>
+      ${mediaClose}
+      <button class="product-save${savedClass}" type="button" data-save-id="${escapeHTML(productId)}" aria-label="${savedLabel}" title="${savedLabel}">♡</button>
       <div class="product-body">
         <div class="product-category">${escapeHTML(product.category || "Lifestyle")}</div>
-        <h3 class="product-title">${escapeHTML(product.title)}</h3>
-        <p class="product-description">${escapeHTML(product.description || "An interesting product selected for everyday style, usefulness, and value.")}</p>
+        <h3 class="product-title">${title}</h3>
+        <p class="product-description">${escapeHTML(product.description || "An interesting product selected for everyday style, usefulness and value.")}</p>
         <div class="product-confidence">✓ Zavo curated <span>• Retailer listing</span></div>
         <div class="product-meta">
-          <span class="product-price">${escapeHTML(price)}</span>
-          <a class="btn btn-primary product-link" href="${escapeHTML(safeLink)}" target="_blank" rel="nofollow sponsored noopener">View Product</a>
+          ${detailLink}
+          <a class="btn btn-primary product-link" href="${escapeHTML(retailerLink)}" target="_blank" rel="nofollow sponsored noopener">View retailer deal</a>
         </div>
       </div>
     </article>`;
@@ -283,15 +302,6 @@ function activeDeals() {
     .slice(0, 4);
 }
 
-function flashClass(category, index) {
-  const value = normalize(category);
-  if (value.includes("fashion")) return "flash-fashion";
-  if (value.includes("home")) return "flash-home";
-  if (value.includes("beauty")) return "flash-beauty";
-  if (value.includes("gadget") || value.includes("tech")) return "flash-tech";
-  return ["flash-fashion", "flash-home", "flash-beauty", "flash-tech"][index % 4];
-}
-
 function renderDeals() {
   if (!dealsSection || !flashGrid) return;
 
@@ -303,8 +313,8 @@ function renderDeals() {
   }
 
   dealsSection.hidden = false;
-  flashGrid.innerHTML = deals.map((product, index) => `
-    <a class="flash-card ${flashClass(product.category, index)}" href="${escapeHTML(product.link)}" target="_blank" rel="nofollow sponsored noopener">
+  flashGrid.innerHTML = deals.map((product) => `
+    <a class="flash-card" href="${escapeHTML(product.link)}" target="_blank" rel="nofollow sponsored noopener">
       <div>
         <span>${escapeHTML(product.category || "Limited-time offer")} • Retailer deal</span>
         <strong>${escapeHTML(product.title)}</strong>
@@ -338,7 +348,7 @@ async function loadProducts() {
   if (!grid) return;
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 10000);
+  const timeout = setTimeout(() => controller.abort(), 8000);
 
   try {
     const response = await fetch(`${CSV_URL}&_=${Date.now()}`, {
@@ -392,5 +402,6 @@ grid?.addEventListener("click", (event) => {
 const initialQuery = new URLSearchParams(window.location.search).get("q");
 if (searchInput && initialQuery) searchInput.value = initialQuery;
 
+attachImageFallbacks();
 setInterval(updateDealCountdowns, 1000);
 loadProducts();
