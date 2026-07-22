@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zeshan37405.github.io/smart-gadget-site/sitemap.xml
+Sitemap: https://zeshan37405.github.io/zavo/sitemap.xml

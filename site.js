@@ -1,6 +1,6 @@
 const SHEET_ID = "1UykHn4JGBxrrVW61cClI0yGqm5MaRKdBl0e-SA1boKE";
 const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=0`;
-const SITE_ROOT = "https://zeshan37405.github.io/smart-gadget-site/";
+const SITE_ROOT = "https://zeshan37405.github.io/zavo/";
 const PRODUCT_PAGE = `${SITE_ROOT}products/16-color-led-sunset-projection-lamp.html`;
 const PRODUCT_IMAGE_PRIMARY = `${SITE_ROOT}images/16-color-led-sunset-projection-lamp.png`;
 const PRODUCT_IMAGE_BACKUP = "https://raw.githubusercontent.com/zeshan37405/smart-gadget-site/99508eb2f16db21dd3a1e81f0cc088f841a02821/images/16-color-led-sunset-projection-lamp.png";
