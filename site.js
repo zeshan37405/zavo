@@ -250,7 +250,7 @@ function renderProducts() {
         <div class="product-confidence">✓ Zavo curated <span>• Retailer listing</span></div>
         <div class="product-meta">
           ${detailLink}
-          <a class="btn btn-primary product-link" href="${escapeHTML(retailerLink)}" target="_blank" rel="nofollow sponsored noopener">View retailer deal</a>
+          <a class="btn btn-primary product-link" href="${escapeHTML(retailerLink)}" target="_blank" rel="nofollow sponsored noopener">Get Product <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </article>`;
